@@ -49,16 +49,14 @@ function handleVideoStream(
 
     const video = document.querySelector('video')!;
 
-    console.log('video', video);
-
     video.classList.add('active');
     video.srcObject = videoStream;
     video.play();
 
-    const options = {
-      mimeType: 'video/webm'
-    };
-    mediaRecorder = new MediaRecorder(videoStream, options);
+    mediaRecorder = new MediaRecorder(videoStream, {
+      mimeType: 'video/webm;codecs=vp8,opus'
+      // mimeType: 'video/x-matroska;codecs=h264'
+    });
 
     setMediaRecorder(mediaRecorder);
 
@@ -76,7 +74,8 @@ const handleDataAvailable = (e: BlobEvent) => {
 
 const handleStop = async () => {
   const blob = new Blob(recorderChunks, {
-    type: 'video/webm'
+    // type: 'video/x-matroska;codecs=h264'
+    type: 'video/webm;codecs=vp8,opus'
   });
 
   await window.electron.saveFile(blob);
