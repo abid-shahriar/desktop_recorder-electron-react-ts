@@ -4,3 +4,24 @@
   box-sizing: border-box;
   font-family: 'Roboto Slab', sans-serif;
 }
+
+/* style the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* style the scrollbar-track */
+::-webkit-scrollbar-track {
+  background: #3c3c3c;
+}
+
+/* style the scrollbar-thumb */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* style the scrollbar-button */
+::-webkit-scrollbar-button {
+  background: #888;
+}
